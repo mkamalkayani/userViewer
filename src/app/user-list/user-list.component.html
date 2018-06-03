@@ -1,5 +1,8 @@
 <ul *ngFor="let user of users">
-	<li>{{user.name}}</li>
-  <p>{{user.address.street}}, {{user.address.suite}}<br>
-      {{user.address.city}}, {{user.address.zipcode}}</p>
+  <div (click)="sendSelectedUser(user)">
+    <li>{{user.name}}</li>
+    <p>{{user.address.street}}, {{user.address.suite}}<br>
+        {{user.address.city}}, {{user.address.zipcode}}</p>
+  </div>
 </ul>
+
