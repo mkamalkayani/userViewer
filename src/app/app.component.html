@@ -5,6 +5,6 @@
   </h1>
 </div>
 
-  <app-user-list></app-user-list>
-  <app-user-detail></app-user-detail>
+  <app-user-list (selectedUser)='selectedUser=$event'></app-user-list>
+  <app-user-detail [selectedUser]='selectedUser'></app-user-detail>
  
