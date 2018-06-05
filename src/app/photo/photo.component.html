@@ -1,0 +1,6 @@
+<div *ngIf='selectedAlbum'>
+  <div *ngFor='let photo of selectedAlbumPhotos'>
+    <li>{{photo.title}}</li>
+    <img src={{photo.url}} alt="">
+  </div>
+</div>
