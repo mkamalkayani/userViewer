@@ -6,5 +6,6 @@
 </div>
 
   <app-user-list (selectedUser)='selectedUser=$event'></app-user-list>
-  <app-user-detail [selectedUser]='selectedUser'></app-user-detail>
+  <app-user-detail [selectedUser]='selectedUser' (selectedAlbum)='selectedAlbum=$event'></app-user-detail>
+  <app-photo [selectedAlbum]='selectedAlbum'></app-photo>
  

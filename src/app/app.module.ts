@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PhotoComponent } from './photo/photo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserListComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    PhotoComponent
   ],
   imports: [
     BrowserModule,
