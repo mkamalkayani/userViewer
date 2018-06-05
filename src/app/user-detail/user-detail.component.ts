@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, EventEmitter, Output } from '@angular/core';
 import { User } from '../user';
 import { AlbumService } from '../album.service';
 import { Album } from '../album';
@@ -10,6 +10,8 @@ import { Album } from '../album';
 })
 export class UserDetailComponent implements OnInit, OnChanges {
   @Input() public selectedUser: User;
+  @Output() selectedAlbum = new EventEmitter();
+
   private albums: Album[];
   public selectedUserAlbums: Album[];
 
@@ -29,6 +31,11 @@ export class UserDetailComponent implements OnInit, OnChanges {
       this.selectedUserAlbums = this.albums.filter(this.filterAlbums, this);
       console.log(this.selectedUserAlbums);
     }
+  }
+
+  sendSelectedAlbum(album: Album) {
+    this.selectedAlbum.emit(album);
+    console.log(album.id);
   }
 
 }

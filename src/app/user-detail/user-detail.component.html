@@ -1,12 +1,10 @@
 <div *ngIf='selectedUser' >
     <h1>Albums</h1>
     <h2>Name: {{selectedUser.name}}</h2>
-    <p>{{selectedUser.id}}</p>
 
     <div *ngFor='let album of selectedUserAlbums'>
-        <li>{{album.title}}</li>
+        <ul (click)='sendSelectedAlbum(album)'>{{album.title}}</ul>
     </div>
-
 </div>
 
 
