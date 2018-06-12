@@ -2,40 +2,39 @@ import { Component, OnInit, OnChanges, Input, EventEmitter, Output } from '@angu
 import { User } from '../user';
 import { AlbumService } from '../album.service';
 import { Album } from '../album';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-user-detail',
   templateUrl: './user-detail.component.html',
   styleUrls: ['./user-detail.component.css']
 })
-export class UserDetailComponent implements OnInit, OnChanges {
-  @Input() public selectedUser: User;
-  @Output() selectedAlbum = new EventEmitter();
+export class UserDetailComponent implements OnInit {
+  private id: number;
+  public albumsOfSelectedUser: Album[];
 
-  private albums: Album[];
-  public selectedUserAlbums: Album[];
-
-  constructor(private _albumService: AlbumService) { }
-
-  ngOnInit() {
-    this._albumService.getAlbums()
-      .subscribe(data => this.albums = data);
-  }
+  constructor(
+    private route: ActivatedRoute,
+    private location: Location,
+    private _albumService: AlbumService
+  ) { }
 
   filterAlbums(Obj) {
-    return Obj.userId === this.selectedUser.id;
+    return Obj.userId === this.id;
   }
 
-  ngOnChanges() {
-    if (this.selectedUser) {
-      this.selectedUserAlbums = this.albums.filter(this.filterAlbums, this);
-      console.log(this.selectedUserAlbums);
-    }
+  getId(): void {
+    this.id = +this.route.snapshot.paramMap.get('id');
   }
 
-  sendSelectedAlbum(album: Album) {
-    this.selectedAlbum.emit(album);
-    console.log(album.id);
+  ngOnInit() {
+    this.getId();
+
+    this._albumService.getAlbums()
+      .subscribe(data => {
+        this.albumsOfSelectedUser = data.filter(this.filterAlbums, this);
+      });
   }
 
 }

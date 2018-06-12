@@ -1,10 +1,14 @@
-<div *ngIf='selectedUser' >
-    <h1>Albums</h1>
-    <h2>Name: {{selectedUser.name}}</h2>
+<p>user details</p>
 
-    <div *ngFor='let album of selectedUserAlbums'>
-        <ul (click)='sendSelectedAlbum(album)'>{{album.title}}</ul>
-    </div>
+<div *ngIf='id' >
+    <h1>Albums</h1>
+    <h2>User: {{id}}</h2>
+
+    <ol>
+        <li *ngFor='let album of albumsOfSelectedUser'>
+            {{album.title}}
+        </li>
+    </ol>
 </div>
 
 
