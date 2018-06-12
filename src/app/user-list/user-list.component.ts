@@ -21,7 +21,6 @@ export class UserListComponent implements OnInit {
 
   sendSelectedUser(user: User) {
     this.selectedUser.emit(user);
-    console.log(user.name);
   }
 
 }

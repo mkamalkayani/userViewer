@@ -1,4 +1,10 @@
-li{
-    font-weight: bold;
-    text-decoration: none;
+.user-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.card {
+    margin: 0.5em;
+    width: 250px;
 }

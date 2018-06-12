@@ -1,8 +1,9 @@
-<ul *ngFor="let user of users">
-  <div (click)="sendSelectedUser(user)">
-    <li>{{user.name}}</li>
-    <p>{{user.address.street}}, {{user.address.suite}}<br>
-        {{user.address.city}}, {{user.address.zipcode}}</p>
+<h1>List of Users</h1>
+<div class="user-list">
+  <div *ngFor="let user of users" (click)="sendSelectedUser(user)" routerLink="/users/{{user.id}}" class='card'>
+      <h3 class='card-title'>{{user.name}}</h3>
+      <p class='card-body'>{{user.address.street}}, {{user.address.suite}}<br>
+          {{user.address.city}}, {{user.address.zipcode}}</p>
   </div>
-</ul>
+</div>
 
