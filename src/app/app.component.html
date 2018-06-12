@@ -1,11 +1,11 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    {{ title }}!
-  </h1>
-</div>
+<nav>
+  <a routerLink="/users">List of Users</a>
+</nav>
 
-  <app-user-list (selectedUser)='selectedUser=$event'></app-user-list>
+<router-outlet></router-outlet>
+
+  <!-- <app-user-list (selectedUser)='selectedUser=$event'></app-user-list>
   <app-user-detail [selectedUser]='selectedUser' (selectedAlbum)='selectedAlbum=$event'></app-user-detail>
-  <app-photo [selectedAlbum]='selectedAlbum'></app-photo>
+  <app-photo [selectedAlbum]='selectedAlbum'></app-photo> -->
  
