@@ -1,3 +1,14 @@
 img {
-    width: 5em;
+    width: 10em;
+}
+
+.photo-album {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.photo {
+    text-overflow: ellipsis;
+    width: 10em;
+    padding: 0.6em;
 }

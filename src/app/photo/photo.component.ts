@@ -27,7 +27,6 @@ export class PhotoComponent implements OnInit, OnChanges {
   ngOnChanges() {
     if (this.selectedAlbum) {
       this.selectedAlbumPhotos = this.photos.filter(this.filterPhotos, this);
-      console.log(this.selectedAlbumPhotos);
     }
   }
 
