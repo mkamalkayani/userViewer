@@ -12,7 +12,8 @@ import { Location } from '@angular/common';
 })
 export class UserDetailComponent implements OnInit {
   private id: number;
-  public albumsOfSelectedUser: Album[];
+  albumsOfSelectedUser: Album[];
+  private selectedAlbum: Album;
 
   constructor(
     private route: ActivatedRoute,
@@ -35,6 +36,11 @@ export class UserDetailComponent implements OnInit {
       .subscribe(data => {
         this.albumsOfSelectedUser = data.filter(this.filterAlbums, this);
       });
+  }
+
+  setSelectedAlbum (album: Album): void {
+    this.selectedAlbum = album;
+    console.log(this.selectedAlbum);
   }
 
 }

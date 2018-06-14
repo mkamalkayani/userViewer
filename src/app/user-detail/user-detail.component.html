@@ -1,14 +1,15 @@
-<p>user details</p>
-
 <div *ngIf='id' >
     <h1>Albums</h1>
-    <h2>User: {{id}}</h2>
+    <h2>User Id: {{id}}</h2>
 
-    <ol>
-        <li *ngFor='let album of albumsOfSelectedUser'>
+    <div class='albums'>
+        <button *ngFor='let album of albumsOfSelectedUser' (click)='setSelectedAlbum(album)'>
             {{album.title}}
-        </li>
-    </ol>
+        </button>
+    </div>
+    <app-photo [selectedAlbum]='selectedAlbum'></app-photo>
 </div>
+
+
 
 
